@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:orientation="vertical">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ic_card_item" />
+    <ImageView
+        android:id="@+id/chat_history_icon_image_view"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="16dp"
+        tools:src="@drawable/ic_student"/>
+    <TextView
+        android:id="@+id/employee_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/chat_history_icon_image_view"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@id/chat_history_icon_image_view"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Ben Jackbun"
+        android:layout_marginRight="16dp"
+        android:layout_toRightOf="@id/chat_history_icon_image_view" />
+    <TextView
+        android:id="@+id/sub_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/chat_history_icon_image_view"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@id/chat_history_icon_image_view"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        tools:text="Where are you?"
+        android:layout_marginRight="16dp"
+        android:layout_toRightOf="@id/chat_history_icon_image_view" />
+</RelativeLayout>
+
+
+</LinearLayout>
