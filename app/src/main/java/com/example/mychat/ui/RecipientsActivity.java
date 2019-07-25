@@ -61,7 +61,8 @@ public class RecipientsActivity extends AppCompatActivity {
         mFirestore = FirebaseFirestore.getInstance();
         mUsers = new ArrayList<>();
         mFirestore.collection(Constant.USERS_COLLECTION)
-                .orderBy(Constant.USER_CREATE_DATE_DOC, Query.Direction.ASCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .orderBy(Constant.USER_CREATE_DATE_DOC, Query.Direction.ASCENDING)
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {

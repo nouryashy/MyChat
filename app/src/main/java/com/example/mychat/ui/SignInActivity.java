@@ -57,8 +57,8 @@ public class SignInActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseFirestore = FirebaseFirestore.getInstance();
-        FactoryMethods.hideProgressBar(mProgressBar,mSignInButton);
-            mCurrentUser = mFirebaseAuth.getCurrentUser();
+        FactoryMethods.hideProgressBar(mProgressBar, mSignInButton);
+        mCurrentUser = mFirebaseAuth.getCurrentUser();
     }
 
     @Override
@@ -128,23 +128,26 @@ public class SignInActivity extends AppCompatActivity {
 
     }
 
+    //SIGNUP
     private void createNewUserInFireStore(FirebaseUser currentUser) {
         UserProfileChangeRequest userProfileChangeRequest = new UserProfileChangeRequest.Builder()
                 .setDisplayName(mUserName).build();
         mFirebaseAuth.getCurrentUser().updateProfile(userProfileChangeRequest);
+
         User user = new User(mUserName, currentUser.getEmail()
                 , FactoryMethods.getCurrentTimeStamp(), currentUser.getUid());
+
         mFirebaseFirestore.collection(Constant.USERS_COLLECTION)
                 .add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
-         starChatActivity();
+                starChatActivity();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Snackbar.make(mConstraintLayout,"Failed to sign in, please try again!",Snackbar.LENGTH_SHORT).show();
-                Log.e(TAG,"createNewUserInFirestore: "+ e);
+                Snackbar.make(mConstraintLayout, "Failed to sign in, please try again!", Snackbar.LENGTH_SHORT).show();
+                Log.e(TAG, "createNewUserInFirestore: " + e);
             }
         });
 

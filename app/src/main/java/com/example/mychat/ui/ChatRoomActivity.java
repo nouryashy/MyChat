@@ -78,9 +78,9 @@ public class ChatRoomActivity extends AppCompatActivity {
         mFirestore = FirebaseFirestore.getInstance();
         mCurrentUser = mFirebaseAuth.getCurrentUser();
         if (mRecipient != null) {
-            getSupportActionBar().setTitle(mRecipient.getUserUID());
+            getSupportActionBar().setTitle(mRecipient.getUserName());
         } else {
-            getSupportActionBar().setTitle(mChatMetaData.getUserUID());
+            getSupportActionBar().setTitle(mChatMetaData.getUserName());
         }
         if (mRecipient != null) {
             createChatRoomID(mRecipient.getUserUID());
