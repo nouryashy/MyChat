@@ -131,6 +131,7 @@ public class ChatHistoryActivity extends AppCompatActivity {
 
                 Log.d(TAG, "onCreate: " + mChatRoomIDs.size());
                 mProgressBar.setVisibility(View.GONE);
+                mEmptyTV.setVisibility(View.INVISIBLE);
                 if (mChatRoomIDs.size() == 0) {
                     mEmptyTV.setVisibility(View.VISIBLE);
                     mEmptyTV.setText("No recipients");
